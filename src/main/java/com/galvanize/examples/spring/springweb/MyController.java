@@ -1,7 +1,6 @@
 package com.galvanize.examples.spring.springweb;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
