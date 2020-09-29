@@ -22,26 +22,29 @@ public class MyController {
 
   private List<Movie> movies = new ArrayList<>();
 
-  private Movie getMovie(Integer id) {
-    return movies
-      .stream()
-      .filter(movie -> movie.getId() == id)
-      .findFirst()
-      .orElse(null);
+  {
+    this.movies.add(new Movie(1, "Sarafina"));
+    this.movies.add(new Movie(2, "Daughters of the Dust"));
+    this.movies.add(new Movie(3, "Quilombo"));
   }
-  
+
+
+  private Movie getMovie(final Integer id) {
+    return movies.stream().filter(movie -> movie.getId() == id).findFirst().orElse(null);
+  }
+
   @GetMapping
   public List<Movie> getMovies() {
     return movies;
   }
-  
+
   @GetMapping("/{id}")
-  public Movie getMovieById(@PathVariable Integer id) {
+  public Movie getMovieById(@PathVariable final Integer id) {
     return getMovie(id);
   }
 
   @PostMapping
-  public Movie addMovie(@RequestBody Movie movie) {
+  public Movie addMovie(@RequestBody final Movie movie) {
     count++;
 
     movie.setId(count);
@@ -51,10 +54,10 @@ public class MyController {
   }
 
   @PutMapping("/{id}")
-  public Movie updateMovie(@PathVariable Integer id, @RequestBody Movie movie) {
-    Movie movieToUpdate = getMovie(id);
+  public Movie updateMovie(@PathVariable final Integer id, @RequestBody final Movie movie) {
+    final Movie movieToUpdate = getMovie(id);
 
-    if(movieToUpdate == null) {
+    if (movieToUpdate == null) {
       throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
     }
 
@@ -63,8 +66,8 @@ public class MyController {
   }
 
   @DeleteMapping("/{id}")
-  public void deleteMovie(@PathVariable Integer id) {
-    Movie movieToDelete = new Movie(id, "");
+  public void deleteMovie(@PathVariable final Integer id) {
+    final Movie movieToDelete = new Movie(id, "");
     movies.remove(movieToDelete);
   }
 }
