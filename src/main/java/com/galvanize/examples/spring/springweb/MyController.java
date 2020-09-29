@@ -23,7 +23,7 @@ public class MyController {
   private List<Movie> movies = new ArrayList<>();
 
   {
-    this.movies.add(new Movie(1, "Sarafina"));
+    this.movies.add(new Movie(1, "Knives Out"));
     this.movies.add(new Movie(2, "Daughters of the Dust"));
     this.movies.add(new Movie(3, "Quilombo"));
   }
