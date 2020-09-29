@@ -16,7 +16,7 @@ build:
 
 production:
   type: deploy
-  stage: production
+  stage: deploy
   image: ruby:latest
   script:
     - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
