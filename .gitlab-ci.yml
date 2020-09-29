@@ -9,12 +9,12 @@ build:
   script: ./gradlew stage
   artifacts:
     paths:
-      - build/libs/demo-0.0.1-SNAPSHOT.jar
+      - build/libs/springweb-0.0.1-SNAPSHOT.jar
 
 production:
   type: deploy
   stage: deploy
-  image: java:8
+  image: ruby:latest
   script:
     - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
   only:
